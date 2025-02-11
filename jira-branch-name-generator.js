@@ -78,18 +78,18 @@ function addBranchButton() {
     "use strict";
 
     const lastBreadcrumbsContainer = _.last(
-        document.querySelectorAll('div[data-test-id*="breadcrumbs"]')
+        document.querySelectorAll('div[data-testid*="issue.views.issue-base.foundation.breadcrumbs.breadcrumb-current-issue-container"]')
     );
 
     function createBranchName() {
         const jiraTitle = _.first(
             document.querySelectorAll(
-                'h1[data-test-id*="issue.views.issue-base.foundation.summary.heading"]'
+                'h1[data-testid*="issue.views.issue-base.foundation.summary.heading"]'
             )
         ).innerText;
         const jiraId = lastBreadcrumbsContainer.innerText;
 
-        copy(`${jiraId}-${_.kebabCase(jiraTitle)}`);
+        copy(`dev-${jiraId.toLowerCase()}-${_.kebabCase(jiraTitle)}`);
     }
 
     function copy(value) {
